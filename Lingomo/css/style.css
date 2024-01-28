@@ -10,7 +10,7 @@
     background: #0F1347!important;
 }
 
-#hero h4{
+#ourstoryabtus h4{
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 30px;
   font-size: 16px;
@@ -96,5 +96,193 @@
   .img-fulllogo {
     max-width: 25%;
     height: auto;
+  }
+}
+
+#ourstoryabtus {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-suzy-hazelwood-1995842.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#ourstoryabtus:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#ourstoryabtus .container {
+  z-index: 2;
+}
+
+#ourstoryabtus h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#ourstoryabtus h1 span {
+  border-bottom: 4px solid #3F88C5;
+}
+
+#ourstoryabtus h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#ourstoryabtus .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#ourstoryabtus .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+#meetteamabtus {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-fauxels-3184418.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#meetteamabtus:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#meetteamabtus .container {
+  z-index: 2;
+}
+
+#meetteamabtus h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#meetteamabtus .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#meetteamabtus .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+#missionandvaluesatus {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-tara-winstead-7666429.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#missionandvaluesatus:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#missionandvaluesatus .container {
+  z-index: 2;
+}
+
+#missionandvaluesatus h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#missionandvaluesatus .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#missionandvaluesatus .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+@media (max-width: 992px) {
+  #ourstoryabtus {
+    height: calc(100vh - 70px);
+  }
+
+  #meetteamabtus {
+    height: calc(100vh - 70px);
+  }
+
+  #missionandvaluesatus {
+    height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 768px) {
+
+  #ourstoryabtus h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #meetteamabtus h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #missionandvaluesatus h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
   }
 }
