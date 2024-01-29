@@ -34,7 +34,9 @@
   background-color: #635C51;
 }
 
-
+.salmonpink {
+  background-color: #ffa3ac;
+}
 
 .benelearningpathcard {
   background-color: #FFA3AC;
@@ -80,6 +82,25 @@
   color: black;
 }
 
+.btn-sign-up {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #635c51;
+  text-transform: uppercase;
+}
+
+.btn-sign-up:hover {
+  background: #BAAD96;
+  color: #0F1347;
+}
+
 
 @media (min-width: 768px) {
   .learningpathcard div{
@@ -87,7 +108,7 @@
   }
 
   .testcard {
-    min-height: 450px;
+    min-height: 475px;
   }
 }
 
@@ -252,6 +273,147 @@
   background: #4ea5e0;
 }
 
+#customersupport {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-tima-miroshnichenko-5453837.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#customersupport:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#customersupport .container {
+  z-index: 2;
+}
+
+#customersupport h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#customersupport .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#customersupport .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+#feedbackandsuggestions {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-ann-h-6935187.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#feedbackandsuggestions:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#feedbackandsuggestions .container {
+  z-index: 2;
+}
+
+#feedbackandsuggestions h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#feedbackandsuggestions .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#feedbackandsuggestions .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+#faqs {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/pexels-leeloo-the-first-5428829.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#faqs:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#faqs .container {
+  z-index: 2;
+}
+
+#faqs h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+#faqs .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #3F88C5;
+  text-transform: uppercase;
+}
+
+#faqs .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
 @media (max-width: 992px) {
   #ourstoryabtus {
     height: calc(100vh - 70px);
@@ -262,6 +424,18 @@
   }
 
   #missionandvaluesatus {
+    height: calc(100vh - 70px);
+  }
+
+  #customersupport {
+    height: calc(100vh - 70px);
+  }
+
+  #feedbackandsuggestions {
+    height: calc(100vh - 70px);
+  }
+
+  #faqs {
     height: calc(100vh - 70px);
   }
 }
@@ -281,6 +455,29 @@
   }
 
   #missionandvaluesatus h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #customersupport h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #feedbackandsuggestions h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  #feedbackandsuggestions {
+    background-size: contain;
+    height: calc(50vh);
+  }
+
+  #faqs h2 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
