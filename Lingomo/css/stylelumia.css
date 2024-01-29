@@ -394,6 +394,11 @@ h6 {
   font-size: 24px;
 }
 
+#hero h4 {
+  color: #fff;
+  font-size: 20px;
+}
+
 #hero .btn-get-started {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
