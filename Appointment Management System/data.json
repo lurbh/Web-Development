@@ -1,0 +1,46 @@
+{
+    "Appointments" : [
+        {
+            "clinic": "Serenity Wellness Center",
+            "doctor": "Dr. Grace Anderson",
+            "appttype": "General Check-up",
+            "date": "2024-02-05",
+            "time": "13:15"
+        },
+        {
+            "clinic": "Apex Family Healthcare",
+            "doctor": "Dr. Benjamin Carte",
+            "appttype": "Urgent Care Appointment",
+            "date": "2024-02-13",
+            "time": "14:20"
+        },
+        {
+            "clinic": "Harmony Medical Associates",
+            "doctor": "Dr. Sophia Patel",
+            "appttype": "Follow-up Appointment",
+            "date": "2024-02-19",
+            "time": "15:30"
+        },
+        {
+            "clinic": "Vitality Care Clinic",
+            "doctor": "Dr. Jameson Harper,",
+            "appttype": "Chronic Disease Management",
+            "date": "2024-02-15",
+            "time": "11:00"
+        },
+        {
+            "clinic": "Radiant Life Clinic",
+            "doctor": "Dr. Benjamin Hayes",
+            "appttype": "Preventive Care Appointment",
+            "date": "2024-02-29",
+            "time": "17:45"
+        },
+        {
+            "clinic": "Tranquil Health Solutions",
+            "doctor": "Dr. Emily Turner",
+            "appttype": "Medication Review Appointment",
+            "date": "2024-02-26",
+            "time": "12:20"
+        }
+    ]
+}
