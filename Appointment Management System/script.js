@@ -4,9 +4,10 @@ function main(filedata){
     let datetime = new Date('March 13, 2024 14:20');
     let date = formatDate(datetime);
     let time = formatTime(datetime);
-    createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
+    //createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
 
     // Load data onto page from filedata
+    console.log(filedata);
     loadDataFromFile(apptList,filedata);
     renderApptlist(apptList);
 
@@ -27,6 +28,12 @@ function main(filedata){
         submiteditAppointment(apptList);
         renderApptlist(apptList);
     });
+
+    const saveAppointmentsButton = document.querySelector("#saveAppointmentsbtn");
+    saveAppointmentsButton.addEventListener("click", function(){
+        saveAppointments(apptList);
+    });
+    
 
 }
 
@@ -228,14 +235,16 @@ function processCancelAppointment(appt,apptList)
 // Function to load data from file provided 
 function loadDataFromFile(apptList,filedata)
 {
-    for(let data of filedata.Appointments)
+    for(let data of filedata)
         createAppointment(apptList, data.clinic, data.doctor, data.appttype, data.date, data.time);
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
     // Get data from JSON file
-    const response = await axios.get("data.json");
+    //const response = await axios.get("data.json");
+    const data = await loadAppointments();
+    //console.log(data);
     //console.log(response);
     // Pass data into main function
-    main(response.data);
+    main(data);
 });
