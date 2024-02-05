@@ -1,3 +1,7 @@
+const BASE_JSON_BIN_URL = "https://api.jsonbin.io/v3/b";
+const BIN_ID = "65c05af6dc74654018a06028";
+const MASTER_KEY = "$2a$10$XaJJUyV/TynqhPQ33L/9XePy7.sjRxdhrX4DitNWpCW0Lj7OVY9JG"
+
 // Function to create new appointment
 function createAppointment(apptList, clinic, doctor, appttype, date, time) 
 {
@@ -59,3 +63,21 @@ function cancelAppointment(apptList, id) {
         apptList.splice(wantedIndex, 1);
     }
 }
+
+async function loadAppointments()
+{
+    const response = await axios.get(BASE_JSON_BIN_URL + "/" + BIN_ID + "/latest");
+    //console.log(response.data.record);
+    return response.data.record;
+}
+
+async function saveAppointments(apptList) {
+    const response = await axios.put(`${BASE_JSON_BIN_URL}/${BIN_ID}`, apptList, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": MASTER_KEY
+      }
+    });
+    return response.data;
+  
+  }
