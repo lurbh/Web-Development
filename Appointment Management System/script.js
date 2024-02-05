@@ -5,8 +5,10 @@ function main(filedata){
     let date = formatDate(datetime);
     let time = formatTime(datetime);
     //createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
+    //createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
 
     // Load data onto page from filedata
+    console.log(filedata);
     loadDataFromFile(apptList,filedata);
     renderApptlist(apptList);
 
@@ -82,6 +84,7 @@ function toggleAddAppointment()
 // Function to add appointment from data from form
 function submitAddAppointment(apptList)
 {
+    let formcheck = checkUserInput();
     const addApptbtn = document.querySelector("#addAppointmentbtn");
     const addAppt = document.querySelector("#addAppointment");
     const clinic = document.querySelector("#clinic");
@@ -185,6 +188,7 @@ function processEditAppointment(a,apptList)
 // Function to submit updated appointment info
 function submiteditAppointment(apptList)
 {
+    let formcheck = checkUserInput();
     const editApptbtn = document.querySelector("#editAppointmentbtn")
     const addApptbtn = document.querySelector("#addAppointmentbtn");
     const subApptbtn = document.querySelector("#submitAppointmentbtn");
@@ -236,6 +240,7 @@ function processCancelAppointment(appt,apptList)
 function loadDataFromFile(apptList,filedata)
 {
     for(let data of filedata)
+    for(let data of filedata)
         createAppointment(apptList, data.clinic, data.doctor, data.appttype, data.date, data.time);
 }
 
@@ -244,7 +249,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     //const response = await axios.get("data.json");
     const data = await loadAppointments();
     //console.log(data);
+    //const response = await axios.get("data.json");
+    const data = await loadAppointments();
+    //console.log(data);
     //console.log(response);
     // Pass data into main function
+    main(data);
     main(data);
 });
