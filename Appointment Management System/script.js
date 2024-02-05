@@ -7,7 +7,6 @@ function main(filedata){
     //createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
 
     // Load data onto page from filedata
-    console.log(filedata);
     loadDataFromFile(apptList,filedata);
     renderApptlist(apptList);
 
@@ -32,6 +31,7 @@ function main(filedata){
     const saveAppointmentsButton = document.querySelector("#saveAppointmentsbtn");
     saveAppointmentsButton.addEventListener("click", function(){
         saveAppointments(apptList);
+        alert("Appointments has been saved.");
     });
     
 
