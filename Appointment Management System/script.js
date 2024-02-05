@@ -8,7 +8,6 @@ function main(filedata){
     //createAppointment(apptList, "Harmony Health Center", "Dr. Olivia Bennett", "General Check-up", date, time);
 
     // Load data onto page from filedata
-    console.log(filedata);
     loadDataFromFile(apptList,filedata);
     renderApptlist(apptList);
 
@@ -36,7 +35,104 @@ function main(filedata){
         alert("Appointments has been saved.");
     });
     
+    const sortByIdtable = document.querySelector("#sortbyid");
+    sortByIdtable.addEventListener("click", function(){
+        sortById(apptList);
+    });
 
+    const sortByClinictable = document.querySelector("#sortbyclinic");
+    sortByClinictable.addEventListener("click", function(){
+        sortByClinic(apptList);
+    });
+
+    const sortByDoctortable = document.querySelector("#sortbydoctor");
+    sortByDoctortable.addEventListener("click", function(){
+        sortByDoctor(apptList);
+    });
+
+    const sortByTypetable = document.querySelector("#sortbytype");
+    sortByTypetable.addEventListener("click", function(){
+        sortByType(apptList);
+    });
+
+    const sortByDatetable = document.querySelector("#sortbydate");
+    sortByDatetable.addEventListener("click", function(){
+        sortByDate(apptList);
+    });
+
+    const sortByDateTimetable = document.querySelector("#sortbytime");
+    sortByDateTimetable.addEventListener("click", function(){
+        console.log("Sort By Date Time");
+        sortByDateTime(apptList);
+    });
+}
+
+function sortById(apptList)
+{
+    apptList.sort((a, b) => a.id - b.id);
+    renderApptlist(apptList);
+}
+
+function sortByClinic(apptList)
+{
+    apptList.sort((a, b) => a.clinic.localeCompare(b.clinic));
+    renderApptlist(apptList);
+}
+
+function sortByDoctor(apptList)
+{
+    apptList.sort((a, b) => a.doctor.localeCompare(b.doctor));
+    renderApptlist(apptList);
+}
+
+function sortByType(apptList)
+{
+    apptList.sort((a, b) => APPT_TYPE.indexOf(a.appttype) - APPT_TYPE.indexOf(b.appttype));
+    renderApptlist(apptList);
+}
+
+function sortByDate(apptList)
+{
+    
+    apptList.sort((a , b) => {
+        a = a.date.split('-').join('');
+        b = b.date.split('-').join('');
+        return a > b ? 1 : a < b ? -1 : 0;
+    });
+    renderApptlist(apptList);
+}
+
+function sortByDateTime(apptList)
+{
+    apptList.sort((a , b) => {
+        datea = a.date.split('-').join('') + a.time.split(':').join('');
+        dateb = b.date.split('-').join('') + b.time.split(':').join('');
+        return datea > dateb ? 1 : datea < dateb ? -1 : 0;
+    });
+    renderApptlist(apptList);
+}
+
+// Function to check if form is filled up
+function checkUserInput()
+{
+    const clinic = document.querySelector("#clinic");
+    const doctor = document.querySelector("#doctor");
+    const appttype = document.querySelector("#appttype");
+    const date = document.querySelector("#date");
+    const time = document.querySelector("#time");
+    if (clinic.value == "")
+        return ERROR_CODE[1];
+    if (doctor.value ==  "")
+        return ERROR_CODE[2];
+    if (appttype.value ==  "")
+        return ERROR_CODE[3];
+    if (date.value == "")
+        return ERROR_CODE[4];
+    if (time.value ==  "")
+        return ERROR_CODE[5];
+    if (APPT_TYPE.indexOf(appttype.value) == -1)
+        return ERROR_CODE[6];
+    return ERROR_CODE[0];
 }
 
 // Function to format date from a Date into a string
@@ -85,6 +181,11 @@ function toggleAddAppointment()
 function submitAddAppointment(apptList)
 {
     let formcheck = checkUserInput();
+    if (formcheck !="OK")
+    {
+        alert(formcheck);
+        return;
+    }
     const addApptbtn = document.querySelector("#addAppointmentbtn");
     const addAppt = document.querySelector("#addAppointment");
     const clinic = document.querySelector("#clinic");
@@ -189,6 +290,11 @@ function processEditAppointment(a,apptList)
 function submiteditAppointment(apptList)
 {
     let formcheck = checkUserInput();
+    if (formcheck !="OK")
+    {
+        alert(formcheck);
+        return;
+    }
     const editApptbtn = document.querySelector("#editAppointmentbtn")
     const addApptbtn = document.querySelector("#addAppointmentbtn");
     const subApptbtn = document.querySelector("#submitAppointmentbtn");
@@ -240,7 +346,6 @@ function processCancelAppointment(appt,apptList)
 function loadDataFromFile(apptList,filedata)
 {
     for(let data of filedata)
-    for(let data of filedata)
         createAppointment(apptList, data.clinic, data.doctor, data.appttype, data.date, data.time);
 }
 
@@ -249,11 +354,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     //const response = await axios.get("data.json");
     const data = await loadAppointments();
     //console.log(data);
-    //const response = await axios.get("data.json");
-    const data = await loadAppointments();
-    //console.log(data);
     //console.log(response);
     // Pass data into main function
-    main(data);
     main(data);
 });

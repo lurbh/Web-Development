@@ -2,6 +2,25 @@ const BASE_JSON_BIN_URL = "https://api.jsonbin.io/v3/b";
 const BIN_ID = "65c05af6dc74654018a06028";
 const MASTER_KEY = "$2a$10$XaJJUyV/TynqhPQ33L/9XePy7.sjRxdhrX4DitNWpCW0Lj7OVY9JG"
 
+const ERROR_CODE = {
+    0:"OK",
+    1:"Missing Clinic",
+    2:"Missing Doctor",
+    3:"Missing Appointment Type",
+    4:"Missing Date",
+    5:"Missing Time",
+    6:"Invalid Appointment Type"
+}
+
+const APPT_TYPE = [
+    "General Check-up",
+    "Urgent Care Appointment",
+    "Follow-up Appointment",
+    "Chronic Disease Management",
+    "Medication Review Appointment",
+    "Preventive Care Appointment"
+]
+
 // Function to create new appointment
 function createAppointment(apptList, clinic, doctor, appttype, date, time) 
 {
