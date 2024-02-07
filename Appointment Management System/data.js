@@ -1,5 +1,5 @@
 const BASE_JSON_BIN_URL = "https://api.jsonbin.io/v3/b";
-const BIN_ID = "65c05af6dc74654018a06028";
+const BIN_ID = "65c092bddc74654018a07144";
 const MASTER_KEY = "$2a$10$XaJJUyV/TynqhPQ33L/9XePy7.sjRxdhrX4DitNWpCW0Lj7OVY9JG"
 
 const ERROR_CODE = {

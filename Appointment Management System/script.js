@@ -9,12 +9,18 @@ function main(filedata){
 
     // Load data onto page from filedata
     loadDataFromFile(apptList,filedata);
+    sortById(apptList);
     renderApptlist(apptList);
 
     // Add Event Listener for buttons
     const addAppointmentButton = document.querySelector("#addAppointmentbtn");
     addAppointmentButton.addEventListener("click", function(){
         toggleAddAppointment();
+    });
+
+    const cancelButton = document.querySelector("#canceltbtn");
+    cancelButton.addEventListener("click", function(){
+        hideAddAppointment();
     });
 
     const submitAppointmentButton = document.querySelector("#submitAppointmentbtn");
@@ -177,6 +183,22 @@ function toggleAddAppointment()
     addAppt.scrollIntoView();
 }
 
+// Function to show the add appointment form to fill in
+function hideAddAppointment()
+{
+    const addApptbtn = document.querySelector("#addAppointmentbtn");
+    const addAppt = document.querySelector("#addAppointment");
+    const editApptbtn = document.querySelector("#editAppointmentbtn");
+    const subApptbtn = document.querySelector("#submitAppointmentbtn");
+    const top = document.querySelector("#bookappointment");
+    // Toggles View and set button usability
+    editApptbtn.style.display = "None";
+    subApptbtn.style.display = "None";
+    addAppt.style.display = "None";
+    addApptbtn.disabled = false;
+    top.scrollIntoView();
+}
+
 // Function to add appointment from data from form
 function submitAddAppointment(apptList)
 {
@@ -193,7 +215,7 @@ function submitAddAppointment(apptList)
     const appttype = document.querySelector("#appttype");
     const date = document.querySelector("#date");
     const time = document.querySelector("#time");
-    const top = document.querySelector("#bookappointment")
+    const top = document.querySelector("#bookappointment");
     // create appointment
     createAppointment(apptList,clinic.value,doctor.value,appttype.value,date.value,time.value);
     // reset form and return view to top and set button usability
