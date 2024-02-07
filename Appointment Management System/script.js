@@ -1,4 +1,7 @@
-// Main function when page is loaded
+/**
+ * Main function for page
+ * @param {[*]} filedata - Array of objects to load
+ */
 function main(filedata){
     let apptList = [];
     let datetime = new Date('March 13, 2024 14:20');
@@ -68,35 +71,54 @@ function main(filedata){
 
     const sortByDateTimetable = document.querySelector("#sortbytime");
     sortByDateTimetable.addEventListener("click", function(){
-        console.log("Sort By Date Time");
         sortByDateTime(apptList);
     });
 }
 
+/**
+ * Function to sort given array of items by ID
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortById(apptList)
 {
     apptList.sort((a, b) => a.id - b.id);
     renderApptlist(apptList);
 }
 
+/**
+ * Function to sort given array of items by Clinic
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortByClinic(apptList)
 {
     apptList.sort((a, b) => a.clinic.localeCompare(b.clinic));
     renderApptlist(apptList);
 }
 
+/**
+ * Function to sort given array of items by Doctor Name
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortByDoctor(apptList)
 {
     apptList.sort((a, b) => a.doctor.localeCompare(b.doctor));
     renderApptlist(apptList);
 }
 
+/**
+ * Function to sort given array of items by Appointment Type
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortByType(apptList)
 {
     apptList.sort((a, b) => APPT_TYPE.indexOf(a.appttype) - APPT_TYPE.indexOf(b.appttype));
     renderApptlist(apptList);
 }
 
+/**
+ * Function to sort given array of items by Appointment Date
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortByDate(apptList)
 {
     
@@ -108,6 +130,10 @@ function sortByDate(apptList)
     renderApptlist(apptList);
 }
 
+/**
+ * Function to sort given array of items by Appointment Date and time
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function sortByDateTime(apptList)
 {
     apptList.sort((a , b) => {
@@ -118,7 +144,11 @@ function sortByDateTime(apptList)
     renderApptlist(apptList);
 }
 
-// Function to check if form is filled up
+
+/**
+ * Function to check if form is filled up
+ * @returns {ERROR_CODE} Error code base on form validity
+ */
 function checkUserInput()
 {
     const clinic = document.querySelector("#clinic");
@@ -141,7 +171,11 @@ function checkUserInput()
     return ERROR_CODE[0];
 }
 
-// Function to format date from a Date into a string
+/**
+ * Function to format date from a Date into a string (YYYY-MM-DD)
+ * @param {Date} date date to be converted
+ * @returns {string} date in string format
+ */
 function formatDate(date) {
     var month = '' + (date.getMonth()),
         day = '' + date.getDate(),
@@ -155,7 +189,11 @@ function formatDate(date) {
     return [year, month, day].join('-');
 }
 
-// Function to format time from a Date into a string
+/**
+ * Function to format time from a Date into a string(HH:MM)
+ * @param {Date} time time to be converted
+ * @returns {string} time in string format
+ */
 function formatTime(time) {
     let hr = '' + (time.getHours()),
         min = '' + time.getMinutes();
@@ -168,7 +206,9 @@ function formatTime(time) {
     return [hr, min].join(':');
 }
 
-// Function to show the add appointment form to fill in
+/**
+ * Function to show the add appointment form to fill in
+ */
 function toggleAddAppointment()
 {
     const addApptbtn = document.querySelector("#addAppointmentbtn");
@@ -183,7 +223,9 @@ function toggleAddAppointment()
     addAppt.scrollIntoView();
 }
 
-// Function to show the add appointment form to fill in
+/**
+ * Function to show the hide appointment form 
+ */
 function hideAddAppointment()
 {
     const addApptbtn = document.querySelector("#addAppointmentbtn");
@@ -199,7 +241,11 @@ function hideAddAppointment()
     top.scrollIntoView();
 }
 
-// Function to add appointment from data from form
+/**
+ * Function to add appointment from data from form
+ * @param {[*]} apptList - Array of Appointment listing
+ * @returns if form has validation errors
+ */
 function submitAddAppointment(apptList)
 {
     let formcheck = checkUserInput();
@@ -229,7 +275,11 @@ function submitAddAppointment(apptList)
     top.scrollIntoView();
 }
 
-// Function to Chage color based on the appointment type
+/**
+ * Function to Change color based on the appointment type
+ * @param {String} appttype - string of appointment type
+ * @returns {String}  color code of selected appointment typre
+ */
 function getTypeColor(appttype) {
     if (appttype=="General Check-up") 
         return "#0d6efd";
@@ -245,7 +295,10 @@ function getTypeColor(appttype) {
         return "orange";
 }
 
-// Render the Appointment List in a table
+/**
+ * Render the Appointment List in a table 
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function renderApptlist(apptList)
 {
     const appttable = document.querySelector("#tablebody");
@@ -279,7 +332,11 @@ function renderApptlist(apptList)
     }
 }
 
-// Function to open edit an appointment form
+/**
+ * Function to open edit an appointment form with appointment details
+ * @param {Number} a - appointment object to take details from
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function processEditAppointment(a,apptList)
 {
     const editApptbtn = document.querySelector("#editAppointmentbtn")
@@ -308,7 +365,11 @@ function processEditAppointment(a,apptList)
     addAppt.scrollIntoView();
 }
 
-// Function to submit updated appointment info
+/**
+ * Function to submit updated appointment info 
+ * @param {[*]} apptList - Array of Appointment listing
+ * @returns if form has validation errors
+ */
 function submiteditAppointment(apptList)
 {
     let formcheck = checkUserInput();
@@ -353,7 +414,11 @@ function submiteditAppointment(apptList)
     top.scrollIntoView();
 }
 
-// Function to cancel appointment
+/**
+ * Function to cancel appointment 
+ * @param {*} appt - appointment object to take details from
+ * @param {[*]} apptList - Array of Appointment listing
+ */
 function processCancelAppointment(appt,apptList)
 {
     // prompt user to confirm appointment cancellation 
@@ -364,7 +429,11 @@ function processCancelAppointment(appt,apptList)
     renderApptlist(apptList);
 }
 
-// Function to load data from file provided 
+/**
+ * Function to load data from file provided 
+ * @param {[*]} apptList - Array of Appointment listing
+ * @param {[*]} filedata - Array of objects to load
+ */
 function loadDataFromFile(apptList,filedata)
 {
     for(let data of filedata)
