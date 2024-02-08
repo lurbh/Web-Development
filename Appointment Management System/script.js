@@ -171,6 +171,20 @@ function checkUserInput()
     return ERROR_CODE[0];
 }
 
+function ResetForm()
+{
+    const clinic = document.querySelector("#clinic");
+    const doctor = document.querySelector("#doctor");
+    const appttype = document.querySelector("#appttype");
+    const date = document.querySelector("#date");
+    const time = document.querySelector("#time");
+    clinic.value = "";
+    doctor.value = "";
+    appttype.value = "";
+    date.value = "";
+    time.value = "";
+}
+
 /**
  * Function to format date from a Date into a string (YYYY-MM-DD)
  * @param {Date} date date to be converted
@@ -238,6 +252,7 @@ function hideAddAppointment()
     subApptbtn.style.display = "None";
     addAppt.style.display = "None";
     addApptbtn.disabled = false;
+    ResetForm();
     top.scrollIntoView();
 }
 
@@ -265,11 +280,7 @@ function submitAddAppointment(apptList)
     // create appointment
     createAppointment(apptList,clinic.value,doctor.value,appttype.value,date.value,time.value);
     // reset form and return view to top and set button usability
-    clinic.value = "";
-    doctor.value = "";
-    appttype.value = "";
-    date.value = "";
-    time.value = "";
+    ResetForm();
     addAppt.style.display = "none";
     addApptbtn.disabled = false;
     top.scrollIntoView();
@@ -400,11 +411,7 @@ function submiteditAppointment(apptList)
     }
     updateAppointment(apptList,updatedAppt);
     // reset form when update is done
-    clinic.value = "";
-    doctor.value = "";
-    appttype.value = "";
-    date.value = "";
-    time.value = "";
+    ResetForm();
     // Toggles View and set button usability
     editApptbtn.style.display = "None";
     subApptbtn.style.display = "block";
