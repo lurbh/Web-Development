@@ -13,3 +13,9 @@
 {
     color: black;
 }
+
+.bi-arrow-down-up:hover
+{
+    cursor: pointer;
+    color: greenyellow;
+}

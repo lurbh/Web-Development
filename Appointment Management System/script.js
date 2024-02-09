@@ -12,7 +12,6 @@ function main(filedata){
 
     // Load data onto page from filedata
     loadDataFromFile(apptList,filedata);
-    sortById(apptList);
     renderApptlist(apptList);
 
     // Add Event Listener for buttons
@@ -73,74 +72,161 @@ function main(filedata){
     sortByDateTimetable.addEventListener("click", function(){
         sortByDateTime(apptList);
     });
+
+    const redoderidTable = document.querySelector("#redoderid");
+    redoderidTable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#idsortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortById(apptList,sortdirection.value);
+    });
+
+    const redoderclinictable = document.querySelector("#redoderclinic");
+    redoderclinictable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#clinicsortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortByClinic(apptList,sortdirection.value);
+    });
+
+    const redoderdoctortable = document.querySelector("#redoderdoctor");
+    redoderdoctortable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#doctorsortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortByDoctor(apptList,sortdirection.value);
+    });
+
+    const constredodertypetable = document.querySelector("#redodertype");
+    constredodertypetable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#typesortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortByType(apptList,sortdirection.value);
+    });
+
+    const constredoderdatetable = document.querySelector("#redoderdate");
+    constredoderdatetable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#datesortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortByDate(apptList,sortdirection.value);
+    });
+
+    const redodertimetable = document.querySelector("#redodertime");
+    redodertimetable.addEventListener("click", function(){
+        const sortdirection = document.querySelector("#timesortdirection");
+        sortdirection.value = ChangeSortDirection(sortdirection.value);
+        sortByDateTime(apptList,sortdirection.value);
+    });
+
+}
+
+/**
+ * Function to change the sorting direction
+ * @param {string} direction - Direction of sorting currently
+ * @returns the new sorting diretion
+ */
+function ChangeSortDirection(direction)
+{
+    if (direction == 'ASC')
+        return 'DESC';
+    else
+        return 'ASC';
 }
 
 /**
  * Function to sort given array of items by ID
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortById(apptList)
+function sortById(apptList, sortdirection = 'ASC')
 {
-    apptList.sort((a, b) => a.id - b.id);
+    if (sortdirection == 'ASC')
+        apptList.sort((a, b) => a.id - b.id);
+    else
+        apptList.sort((a, b) => b.id - a.id);
     renderApptlist(apptList);
 }
 
 /**
  * Function to sort given array of items by Clinic
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortByClinic(apptList)
+function sortByClinic(apptList, sortdirection = 'ASC')
 {
-    apptList.sort((a, b) => a.clinic.localeCompare(b.clinic));
+    if (sortdirection == 'ASC')
+        apptList.sort((a, b) => a.clinic.localeCompare(b.clinic));
+    else
+        apptList.sort((a, b) => b.clinic.localeCompare(a.clinic));
     renderApptlist(apptList);
 }
 
 /**
  * Function to sort given array of items by Doctor Name
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortByDoctor(apptList)
+function sortByDoctor(apptList, sortdirection = 'ASC')
 {
-    apptList.sort((a, b) => a.doctor.localeCompare(b.doctor));
+    if (sortdirection == 'ASC')
+        apptList.sort((a, b) => a.doctor.localeCompare(b.doctor));
+    else
+        apptList.sort((a, b) => b.doctor.localeCompare(a.doctor));
     renderApptlist(apptList);
 }
 
 /**
  * Function to sort given array of items by Appointment Type
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortByType(apptList)
+function sortByType(apptList, sortdirection = 'ASC')
 {
-    apptList.sort((a, b) => APPT_TYPE.indexOf(a.appttype) - APPT_TYPE.indexOf(b.appttype));
+    if (sortdirection == 'ASC')
+        apptList.sort((a, b) => APPT_TYPE.indexOf(a.appttype) - APPT_TYPE.indexOf(b.appttype));
+    else
+        apptList.sort((a, b) => APPT_TYPE.indexOf(b.appttype) - APPT_TYPE.indexOf(a.appttype));
     renderApptlist(apptList);
 }
 
 /**
  * Function to sort given array of items by Appointment Date
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortByDate(apptList)
+function sortByDate(apptList, sortdirection = 'ASC')
 {
-    
-    apptList.sort((a , b) => {
-        a = a.date.split('-').join('');
-        b = b.date.split('-').join('');
-        return a > b ? 1 : a < b ? -1 : 0;
-    });
+    if (sortdirection == 'ASC')
+        apptList.sort((a , b) => {
+            a = a.date.split('-').join('');
+            b = b.date.split('-').join('');
+            return a > b ? 1 : a < b ? -1 : 0;
+        });
+    else
+        apptList.sort((a , b) => {
+            a = a.date.split('-').join('');
+            b = b.date.split('-').join('');
+            return a < b ? 1 : a > b ? -1 : 0;
+        });
     renderApptlist(apptList);
 }
 
 /**
  * Function to sort given array of items by Appointment Date and time
  * @param {[*]} apptList - Array of Appointment listing
+ * @param {String} sortdirection - sorting direction default value 'ASC'
  */
-function sortByDateTime(apptList)
+function sortByDateTime(apptList, sortdirection = 'ASC')
 {
-    apptList.sort((a , b) => {
-        datea = a.date.split('-').join('') + a.time.split(':').join('');
-        dateb = b.date.split('-').join('') + b.time.split(':').join('');
-        return datea > dateb ? 1 : datea < dateb ? -1 : 0;
-    });
+    if (sortdirection == 'ASC')
+        apptList.sort((a , b) => {
+            datea = a.date.split('-').join('') + a.time.split(':').join('');
+            dateb = b.date.split('-').join('') + b.time.split(':').join('');
+            return datea > dateb ? 1 : datea < dateb ? -1 : 0;
+        });
+    else
+        apptList.sort((a , b) => {
+            datea = a.date.split('-').join('') + a.time.split(':').join('');
+            dateb = b.date.split('-').join('') + b.time.split(':').join('');
+            return datea < dateb ? 1 : datea > dateb ? -1 : 0;
+        });
     renderApptlist(apptList);
 }
 
