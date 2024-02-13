@@ -119,7 +119,7 @@ async function loadAppointments()
 {
     const response = await axios.get(BASE_JSON_BIN_URL + "/" + BIN_ID + "/latest");
     //console.log(response.data.record);
-    return response.data.record;
+    return response.data.record.Appointment;
 }
 
 /**
@@ -128,7 +128,7 @@ async function loadAppointments()
  * @returns response from saving
  */
 async function saveAppointments(apptList) {
-    const response = await axios.put(`${BASE_JSON_BIN_URL}/${BIN_ID}`, apptList, {
+    const response = await axios.put(`${BASE_JSON_BIN_URL}/${BIN_ID}`, {"Appointment" : apptList}, {
       headers: {
         "Content-Type": "application/json",
         "X-Master-Key": MASTER_KEY
