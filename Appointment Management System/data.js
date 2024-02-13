@@ -35,13 +35,14 @@ const APPT_TYPE = [
  * @param {String} appttype - Type of Appointment
  * @param {String} date - Date of Appointment
  * @param {String} time - Time of Appointment
+ * @param {number} id - id of Appointment
  */
-function createAppointment(apptList, clinic, doctor, appttype, date, time) 
+function createAppointment(apptList, clinic, doctor, appttype, date, time, id = 0) 
 {
     const newAppointment = {
         // the purpose of the id is to give each Appointment an unique identity
         // use a random number for simplicty's sake
-        "id": Math.floor(Math.random() * 10000),
+        "id": id ? id : Math.floor(Math.random() * 10000),
         "clinic": clinic,
         "doctor": doctor,
         "appttype": appttype,

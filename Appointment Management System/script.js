@@ -530,7 +530,7 @@ function processCancelAppointment(appt,apptList)
 function loadDataFromFile(apptList,filedata)
 {
     for(let data of filedata)
-        createAppointment(apptList, data.clinic, data.doctor, data.appttype, data.date, data.time);
+        createAppointment(apptList, data.clinic, data.doctor, data.appttype, data.date, data.time, data.id);
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
